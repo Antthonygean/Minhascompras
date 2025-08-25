@@ -1,13 +1,28 @@
-﻿namespace Minhascompras
+﻿namespace Minhascompras;
+using Minhascompras.Helpers;
+public partial class App : Application
 {
-    public partial class App : Application
-    {
-        public App()
-        {
-            InitializeComponent();
+    static SQliteDatabaseHelpers _db;
 
-            // MainPage = new AppShell();
-            MainPage = new NavigationPage(new views.Listaproduto());
+
+    public static SQliteDatabaseHelpers Db
+    {
+        get
+        {
+            if (_db == null)
+            {
+                string caminho = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "banco_sqlite_compras.bdb3");
+                _db = new SQliteDatabaseHelpers(caminho);
+            }
+            return _db;
         }
     }
+    public App()
+    {
+        InitializeComponent();
+
+        // MainPage = new AppShell();
+        MainPage = new NavigationPage(new views.Listaproduto());
+    }
+
 }

@@ -8,11 +8,11 @@ using Minhascompras.Models;
 
 namespace Minhascompras.Helpers
 {
-    public class SQliteDatabaseHeper
+    public class SQliteDatabaseHelpers
     {
         readonly SQLiteAsyncConnection _conn;
 
-        public SQliteDatabaseHeper(string caminho)
+        public SQliteDatabaseHelpers(string caminho)
         {
             _conn = new SQLiteAsyncConnection(caminho);
             _conn.CreateTableAsync<Produto>().Wait();
