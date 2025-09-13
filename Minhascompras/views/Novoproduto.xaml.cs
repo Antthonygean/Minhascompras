@@ -13,12 +13,12 @@ public partial class Novoproduto : ContentPage
         {
             Produto p = new Produto
             {
-                Descricao = txt_descrição.Text,
+                Descrição = txt_descrição.Text,
                 Quantidade = Convert.ToDouble(txt_quantidade.Text),
-                Preco = Convert.ToDouble(txt_preço.Text)
+                Preço = Convert.ToDouble(txt_preço.Text)
             };
 
-            await App.Db.Insert(p);
+            await App.db.Insert(p);
             await DisplayAlert("Sucesso!", "Registro Inserido", "OK");
 
         }

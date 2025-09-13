@@ -5,13 +5,13 @@ public partial class App : Application
     static SQliteDatabaseHelpers _db;
 
 
-    public static SQliteDatabaseHelpers Db
+    public static SQliteDatabaseHelpers db
     {
         get
         {
             if (_db == null)
             {
-                string caminho = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "banco_sqlite_compras.bdb3");
+                string caminho = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "banco_sqlite_compras.db3");
                 _db = new SQliteDatabaseHelpers(caminho);
             }
             return _db;
